@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "mocha"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.2.1",
@@ -76,6 +76,6 @@
     "mocha": "^8.4.0",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.2.0",
-    "sinon": "^11.1.0"
+    "sinon": "^11.1.2"
   }
 }
