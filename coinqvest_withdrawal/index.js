@@ -8,12 +8,28 @@ const { mustValidate } = require('../helpers/validation');
 
 module.exports = async function (context, req) {
     try {
-        const amount = req.body.amount;
-        const targetNetwork = req.body.targetNetwork;
-        const targetAsset = req.body.targetAsset;
-        const sourceAsset = req.body.sourceAsset;
-        const relay = req.body.relay
-        const accountDetail = req.body.accountDetail;
+        const validateTargetNetwork = () => joi.object({
+            targetNetwork: joi.string().length(3).required()
+        }).unknown().required()
+        const {targetNetwork} = mustValidate(validateTargetNetwork(), req.body)
+
+        const validationSchema = () => joi.object({
+            sourceAsset: joi.string().required(),
+            amount: joi.number().required(),
+            targetNetwork: joi.string().required(),
+            accountDetail: joi.object({
+                ...validationsForNetworkType(targetNetwork)
+            }).required(),
+            relay: joi.string(),
+            targetAsset: joi.string()
+        }).required();
+        const body = mustValidate(validationSchema(), req.body)
+        
+        const amount = body.amount;
+        const targetAsset = body.targetAsset;
+        const sourceAsset = body.sourceAsset;
+        const relay = body.relay
+        const accountDetail = body.accountDetail;
         const payloadJson = {
             "sourceAsset": sourceAsset,
             "sourceAmount": amount,
@@ -24,7 +40,6 @@ module.exports = async function (context, req) {
             targetAccount: accountDetail,
             ...(relay && { "relay": relay })
         }
-        console.log('payload', pa)
         const withdrawalResponse = await btcRequest('withdrawal', payloadJson, 'post');
         if (withdrawalResponse.status !== 200) {
             // something went wrong, let's abort and debug by looking at our log file
