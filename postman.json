@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "2b8772e9-7091-4a95-b095-d515f285348f",
+		"name": "NuPay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "misc currencies",
+			"item": [
+				{
+					"name": "xrp_transaction_start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"zkinion@gmail.com\",\n    \"amount\": \"20.01\",\n    \"description\": \"An NFT from NuPay... (XRP)\",\n    \"currency\": \"XRP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/xrp_transaction_start",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"xrp_transaction_start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "xrp_verify_transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/xrp_verify_transaction/4c6fd7c4acb1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"xrp_verify_transaction",
+								"4c6fd7c4acb1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "xlm_transaction_start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"zkinion@gmail.com\",\n    \"amount\": \"3.50\",\n    \"description\": \"An NFT from NuPay... (XLM)\",\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/xlm_transaction_start",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"xlm_transaction_start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "xlm_verify_transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/xlm_verify_transaction/00fc8ddc23e9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"xlm_verify_transaction",
+								"00fc8ddc23e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ltc_transaction_start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"zkinion@gmail.com\",\n    \"amount\": \"9.99\",\n    \"description\": \"An NFT from NuPay... (LTC)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/ltc_transaction_start",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"ltc_transaction_start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ltc_verify_transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/ltc_verify_transaction/a1f12e32c802",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"ltc_verify_transaction",
+								"a1f12e32c802"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NuPay called",
+			"item": [
+				{
+					"name": "nupay test commission",
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://nupay.azurewebsites.net/api/nfts/commission/0x897c09b3b3ac48953504ca088bf5434be7d18de32177906113277b7c01acbbad",
+							"protocol": "http",
+							"host": [
+								"nupay",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"nfts",
+								"commission",
+								"0x897c09b3b3ac48953504ca088bf5434be7d18de32177906113277b7c01acbbad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "time (healthcheck)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "date",
+						"value": "Thu, 12 Aug 2021 9:10 PST",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/time",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"time"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "btc_transaction_start",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"zkinion@gmail.com\",\n    \"amount\": \"35\",\n    \"description\": \"An NFT from NuPay...\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/btc_transaction_start",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"btc_transaction_start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "btc_verify_transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/btc_verify_transaction/4c6fd7c4acb1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"btc_verify_transaction",
+						"4c6fd7c4acb1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_verify_transaction_by_txhash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_verify_transaction_by_txhash/0xc03431eab3ca7b4430abe52d462b9d544eef8822c858ac6abb6cacd7b518a815",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_verify_transaction_by_txhash",
+						"0xc03431eab3ca7b4430abe52d462b9d544eef8822c858ac6abb6cacd7b518a815"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sample_json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_verify_ownership_and_permissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_verify_ownership_and_permissions/:tokenId/:walletAddress",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_verify_ownership_and_permissions",
+						":tokenId",
+						":walletAddress"
+					],
+					"variable": [
+						{
+							"key": "tokenId",
+							"value": "1"
+						},
+						{
+							"key": "walletAddress",
+							"value": "0x2bd0e6E69a2E2bD5517FEC74E81E29a0745e04e0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer_nft",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"0x2bd0e6E69a2E2bD5517FEC74E81E29a0745e04e0\",\n    \"tokenId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/transfer_nft",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"transfer_nft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kracken_swap",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"keypair\": \"XXLMZUSD\",\n    \"amount\": \"10\",\n    \"type\": \"sell\",\n    \"validate\": true,\n    \"orderType\": \"market\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/kracken_swap",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"kracken_swap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coinqvest_withdrawal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sourceAsset\": \"XLM:NATIVE\",\n    \"targetNetwork\": \"XLM\",\n    \"targetAsset\": \"XLM:NATIVE\",\n    \"amount\": \"35\",\n    \"memo\": \"597686186\",\n    \"krackenWalletId\": \"GA5XIGA5C7QTPTWXQHY6MCJRMTRZDOSHR6EFIBNDQTCQHG262N4GGKTM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/coinqvest_withdrawal",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"coinqvest_withdrawal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "connect_bank_account_to_circle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "QVBJX0tFWTpkZmIwNTgwMGI2NjI1ZTM1OWQ4MTQxNTI1YzI5Y2NiNjo5NTEzZTEwNWQ4ZDJlMDkwMDI5ZjcwZjA0ZDRjMzVlNg==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sourceAsset\": \"XLM:NATIVE\",\n    \"targetNetwork\": \"XLM\",\n    \"targetAsset\": \"XLM:NATIVE\",\n    \"amount\": \"35\",\n    \"memo\": \"597686186\",\n    \"krackenWalletId\": \"GA5XIGA5C7QTPTWXQHY6MCJRMTRZDOSHR6EFIBNDQTCQHG262N4GGKTM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/connect_bank_account_to_circle",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"connect_bank_account_to_circle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payout_circle_bank_account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "QVBJX0tFWTpkZmIwNTgwMGI2NjI1ZTM1OWQ4MTQxNTI1YzI5Y2NiNjo5NTEzZTEwNWQ4ZDJlMDkwMDI5ZjcwZjA0ZDRjMzVlNg==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sourceAsset\": \"XLM:NATIVE\",\n    \"targetNetwork\": \"XLM\",\n    \"targetAsset\": \"XLM:NATIVE\",\n    \"amount\": \"35\",\n    \"memo\": \"597686186\",\n    \"krackenWalletId\": \"GA5XIGA5C7QTPTWXQHY6MCJRMTRZDOSHR6EFIBNDQTCQHG262N4GGKTM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/payout_circle_bank_account",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"payout_circle_bank_account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coinqvest_wallets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/coinqvest_wallets",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"coinqvest_wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coinqvest_swap",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"sourceAsset\":\"USD\",\n   \"sourceAmount\":5,\n   \"targetAsset\":\"XLM\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/coinqvest_swap",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"coinqvest_swap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_verify_transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_verify_transaction/abc123",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_verify_transaction",
+						"abc123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_transaction_start",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"zkinion@gmail.com\",\n    \"amount\": \"35\",\n    \"description\": \"An NFT from NuPay...\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/eth_transaction_start",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_transaction_start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_get_token_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_get_token_id/0x6a9624042f85b398f31713cd72d1afcfc39018d054e440f9428107c70f147df4",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_get_token_id",
+						"0x6a9624042f85b398f31713cd72d1afcfc39018d054e440f9428107c70f147df4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_verify_nft_transfer/:token_id/:from_address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_verify_nft_transfer/91/0x48fd5d1e8553253f68d379e671f83fe579ba9115",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_verify_nft_transfer",
+						"91",
+						"0x48fd5d1e8553253f68d379e671f83fe579ba9115"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://prismnodejsprod.azurewebsites.net"
+		},
+		{
+			"key": "date",
+			"value": "Tue, 10 Apr 2021 10:30:32 GMT"
+		},
+		{
+			"key": "NUPAY_URL",
+			"value": "https://nupay.azurewebsites.net"
+		}
+	]
+}
