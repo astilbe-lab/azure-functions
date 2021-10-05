@@ -12,12 +12,13 @@ module.exports = async function (context, req) {
         const memo = req.body.memo;
         const krackenWalletId = req.body.krackenWalletId;
         const sourceAsset = req.body.sourceAsset;
+        const accountDetail = req.body.accountDetail;
         const payloadJson = {
             "sourceAsset": sourceAsset,
             "sourceAmount":amount,
             "targetNetwork":targetNetwork,
             "targetAsset":targetAsset,
-            "targetAccount":{
+            "targetAccount": accountDetail ? accountDetail : {
                 "account":krackenWalletId, // our Kraken account ID for that asset.
                 // DANGER!!!!! This must be the exact wallet ID per asset in question.  It will
                 // be different for each asset, etc:  BTC, XLM, ETH...
@@ -59,7 +60,7 @@ module.exports = async function (context, req) {
         }
 
     } catch (err) {
-        context.res = {
+        const res = {
             status: 500,
             body: {"status": "error", "msg": "uncaught withdrawal error", "err": err}
         }
