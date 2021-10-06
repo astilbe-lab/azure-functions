@@ -15,20 +15,11 @@ module.exports = async function (context, req) {
         //let to_wallet_address = req.params.transaction_id
         const validateSchema = () =>
         joi.object({
-            email: joi.string().required(),
-            amount: joi.number().required(),
+            email: joi.string().email().required(),
+            amount: joi.number().max(200000).required(),
             description: joi.string().required()
         }).required()
         const { email, amount, description } = mustValidate(validateSchema(), req.body);
-        if (amount > 200000) {
-
-            const res = {
-                status: 400,
-                body: {"status": "error", "msg": "Amount can not be higher than $200,000"}
-            }
-            handleResponse(context, res);
-            return;
-        }
         const customer = {
             customer: {
                 email: email
