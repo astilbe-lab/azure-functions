@@ -6,9 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "post"
+        "get"
       ],
-      "route": "btc_transaction_start"
+      "route": "eth_fetch_market_items_by_token_id/{token_id}"
     },
     {
       "type": "http",

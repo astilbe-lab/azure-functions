@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2b8772e9-7091-4a95-b095-d515f285348f",
+		"_postman_id": "5675aa76-4275-4b4c-ae50-3d591ec8458f",
 		"name": "NuPay",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -336,13 +336,13 @@
 			"response": []
 		},
 		{
-			"name": "kracken_swap",
+			"name": "kraken_swap",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"keypair\": \"XXLMZUSD\",\n    \"amount\": \"10\",\n    \"type\": \"sell\",\n    \"validate\": true,\n    \"orderType\": \"market\"\n}",
+					"raw": "{\n    \"keypair\": \"XXLMZUSD\",\n    \"amount\": \"10\",\n    \"transferType\": \"sell\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -350,12 +350,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/kracken_swap",
+					"raw": "{{URL}}/kraken_swap",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
-						"kracken_swap"
+						"kraken_swap"
 					]
 				}
 			},
@@ -368,7 +368,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"sourceAsset\": \"XLM:NATIVE\",\n    \"targetNetwork\": \"XLM\",\n    \"targetAsset\": \"XLM:NATIVE\",\n    \"amount\": \"35\",\n    \"memo\": \"597686186\",\n    \"krackenWalletId\": \"GA5XIGA5C7QTPTWXQHY6MCJRMTRZDOSHR6EFIBNDQTCQHG262N4GGKTM\"\n}",
+					"raw": "{\n    \"sourceAsset\": \"XLM:NATIVE\",\n    \"targetNetwork\": \"XLM\",\n    \"targetAsset\": \"USD\",\n    \"amount\": \"35\",\n    \"memo\": \"597686186\",\n    \"krackenWalletId\": \"GA5XIGA5C7QTPTWXQHY6MCJRMTRZDOSHR6EFIBNDQTCQHG262N4GGKTM\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -521,6 +521,23 @@
 			"response": []
 		},
 		{
+			"name": "eth_fetch_market_items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_fetch_market_items",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_fetch_market_items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "eth_transaction_start",
 			"request": {
 				"method": "POST",
@@ -552,32 +569,77 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/eth_get_token_id/0x6a9624042f85b398f31713cd72d1afcfc39018d054e440f9428107c70f147df4",
+					"raw": "{{URL}}/eth_get_token_id/0x7df28bb2558bb7b2241a9a6713f35f84bba84ef43a436c65c6488d09ed6eff68",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"eth_get_token_id",
-						"0x6a9624042f85b398f31713cd72d1afcfc39018d054e440f9428107c70f147df4"
+						"0x7df28bb2558bb7b2241a9a6713f35f84bba84ef43a436c65c6488d09ed6eff68"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "eth_verify_nft_transfer/:token_id/:from_address",
+			"name": "eth_verify_nft_transfer/:token_id/:from_address/:to_address",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/eth_verify_nft_transfer/91/0x48fd5d1e8553253f68d379e671f83fe579ba9115",
+					"raw": "{{URL}}/eth_verify_nft_transfer/1/0xDb48B5580d5d92f1A4a7cAd5b37e02d853f53c95/0x7Eb825aCd54A322BE2B57717d2Ed0948b71868Ed",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"eth_verify_nft_transfer",
-						"91",
-						"0x48fd5d1e8553253f68d379e671f83fe579ba9115"
+						"1",
+						"0xDb48B5580d5d92f1A4a7cAd5b37e02d853f53c95",
+						"0x7Eb825aCd54A322BE2B57717d2Ed0948b71868Ed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_to_eth_transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sellerAddress\": \"0x21b8A40Ff9Cd18828BDFBD2B37692D3b52cC70b4\",\n    \"tokenId\": 7,\n    \"price\": 100000000,\n    \"mintTxHash\": \"0x7df28bb2558bb7b2241a9a6713f35f84bba84ef43a436c65c6488d09ed6eff68\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/eth_to_eth_transfer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_to_eth_transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eth_fetch_market_items_by_token_id/:token_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/eth_fetch_market_items_by_token_id/7",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"eth_fetch_market_items_by_token_id",
+						"7"
 					]
 				}
 			},
@@ -616,6 +678,10 @@
 		{
 			"key": "NUPAY_URL",
 			"value": "https://nupay.azurewebsites.net"
+		},
+		{
+			"key": "TEMP_URL",
+			"value": "http://localhost:7071"
 		}
 	]
 }

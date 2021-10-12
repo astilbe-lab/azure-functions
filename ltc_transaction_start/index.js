@@ -117,9 +117,11 @@ module.exports = async function (context, req) {
 
 
     } catch (err) {
-        context.res = {
+        console.log(err)
+        const res = {
             status: 500,
-            body: {"error": err}
+            body: {"status": "error", "msg": "uncaught ltc transaction error", "err": err.message ? { detail: err.message}: err}
         }
+        handleResponse(context, res)
     }
 }

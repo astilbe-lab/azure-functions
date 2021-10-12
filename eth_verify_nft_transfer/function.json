@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "eth_verify_nft_transfer/{token_id}/{from_address}"
+      "route": "eth_verify_nft_transfer/{token_id}/{from_address}/{to_address}"
     },
     {
       "type": "http",

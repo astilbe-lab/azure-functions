@@ -6,9 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get"
+        "post"
       ],
-      "route": "xrp_verify_transaction/{checkout_id}"
+      "route": "kraken_swap"
     },
     {
       "type": "http",

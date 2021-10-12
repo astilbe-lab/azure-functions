@@ -7,7 +7,8 @@
       "name": "req",
       "methods": [
         "post"
-      ]
+      ],
+      "route": "eth_to_eth_transfer"
     },
     {
       "type": "http",

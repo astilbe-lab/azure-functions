@@ -13,12 +13,15 @@ module.exports = async function (context, req) {
         //let to_wallet_address = req.params.transaction_id
         const validateSchema = () =>
         joi.object({
-            email: joi.string().email().required(),
-            amount: joi.number().max(200000).required(),
+            email: joi.string().required(),
+            amount: joi.number().required(),
             description: joi.string().required()
         }).required()
         const { email, amount, description } = mustValidate(validateSchema(), req.body);
-        
+        if (amount > 200000) {
+            handleResponse(context, res)
+            return;
+        }
         const customer = {
             customer: {
                 email: email
@@ -103,12 +106,10 @@ module.exports = async function (context, req) {
         handleResponse(context, res)
 
     } catch (err) {
-       const res = {
+        console.log(err)
+        const res = {
             status: 500,
-            body: {"error": err},
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            body: {"status": "error", "msg": "uncaught transaction error", "err": err.message ? { detail: err.message}: err}
         }
         handleResponse(context, res)
     }

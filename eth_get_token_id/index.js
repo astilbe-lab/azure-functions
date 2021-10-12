@@ -6,7 +6,7 @@ module.exports = async function (context, req) {
         const web3 = require('web3');
         const api_key = process.env.ETHERSCAN_API_KEY;
         // context.res = { api_key };
-        let api = require('etherscan-api').init(api_key, "ropsten");
+        let api = require('etherscan-api').init(api_key, "kovan");
         // const tx_hash = req.params.tx_hash;
         const tx_hash = context.bindingData.tx_hash;
         const transaction = await api.proxy.eth_getTransactionReceipt(tx_hash);
@@ -18,12 +18,12 @@ module.exports = async function (context, req) {
             body: {"tokenId": tokenId}
         }
         handleResponse(context, res)
-    } catch(error) {
-        const err = JSON.stringify(error);
+    } catch (err) {
+        console.log(err)
         const res = {
             status: 500,
-            body: `Request error. ${err}`
-        };
+            body: {"status": "error", "msg": "uncaught get token_id error", "err": err.message ? { detail: err.message}: err}
+        }
         handleResponse(context, res)
     }
 };
