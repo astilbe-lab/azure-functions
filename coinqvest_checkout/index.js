@@ -21,7 +21,7 @@ module.exports = async function (context, req) {
       });
     } else {
       handleResponse(context, {
-        status: 200,
+        status: 400,
         body: {
           customerId,
         },
